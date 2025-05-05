@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const parallaxBg = document.getElementById('parallaxBg');
     const parallaxCloud = document.getElementById('parallaxCloud');
     const parallaxCloudBg = document.getElementById('parallaxCloudBg');
+    const parallaxHumst = document.getElementById('parallaxHumst');
     const parallaxCloudBg2 = document.getElementById('parallaxCloudBg2');
     const fogContainer = document.getElementById('fogContainer');
     const container = document.getElementById('parallaxContainer');
@@ -21,8 +22,13 @@ document.addEventListener('DOMContentLoaded', function() {
     	gentleY = Math.cos(time * 0.3) * 5;  // -5px до 5px
         
         parallaxBg.style.transform = `translate(${parallaxX + gentleX}px, ${parallaxY + gentleY}px)scale(1.05)`;
-	parallaxCloud.style.transform = `translate(${parallaxX * 4.5 + gentleX * 4.5}px, ${parallaxY * 4.5 + gentleY * 4.5}px)scale(1.05)`;
+	parallaxBg1.style.transform = `translate(${parallaxX * 3.5 + gentleX * 3.5}px, ${parallaxY * 3.5 + gentleY * 3.5}px)scale(1.05)`;
+	parallaxBg2.style.transform = `translate(${parallaxX * 1.5 + gentleX * 1.5}px, ${parallaxY * 1.5 + gentleY * 1.5}px)scale(1.05)`;
+	parallaxBg3.style.transform = `translate(${parallaxX * 0.5 + gentleX * 0.5}px, ${parallaxY * 0.5 + gentleY * 0.5}px)scale(1.05)`;
+	parallaxBg4.style.transform = `translate(${parallaxX / 2 + gentleX / 2}px, ${parallaxY / 2 + gentleY / 2}px)scale(1.05)`;
+	parallaxCloud.style.transform = `translate(${parallaxX * 4.5 + gentleX * 4.5}px, ${parallaxY * 4.5 + gentleY * 4.5}px)scale(1.025)`;
 	parallaxCloudBg.style.transform = `translate(${parallaxX + gentleX }px, ${parallaxY + gentleY }px)scale(1.2)`;
+	parallaxHumst.style.transform = `translate(${parallaxX + gentleX }px, ${parallaxY + gentleY }px)scale(1.0)`;
 	parallaxCloudBg2.style.transform = `translate(${parallaxX * 0.5 + gentleX * 0.5}px, ${parallaxY * 0.5+ gentleY * 0.5}px)scale(1.2)`;
         fogContainer.style.transform = `translate(${parallaxX * 0.3 + gentleX * 0.3}px, ${parallaxY * 0.3+ gentleY * 0.3}px)`;
         

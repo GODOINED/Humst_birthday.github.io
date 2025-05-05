@@ -25,10 +25,86 @@ body, html {
     width: 120%;
     height: 120%;
     background-image: url('bg.png');
-    background-size: auto 100%;
+    background-size: auto 90%;
     background-position: center;
     will-change: transform;
     z-index: 0;
+    will-change: transform; /* Говорим браузеру, что будет анимация */
+    backface-visibility: hidden; /* Фикс дрожания в Chrome */
+}
+
+.parallax-bg1 {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: url('bg_1.png');
+    background-size: auto 90%;
+    background-position: center;
+    will-change: transform;
+    z-index: 2;
+    will-change: transform; /* Говорим браузеру, что будет анимация */
+    backface-visibility: hidden; /* Фикс дрожания в Chrome */
+}
+
+.parallax-bg2 {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: url('bg_2.png');
+    background-size: auto 90%;
+    background-position: center;
+    will-change: transform;
+    z-index: 1;
+    will-change: transform; /* Говорим браузеру, что будет анимация */
+    backface-visibility: hidden; /* Фикс дрожания в Chrome */
+}
+
+.parallax-bg3 {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: url('bg_3.png');
+    background-size: auto 90%;
+    background-position: center;
+    will-change: transform;
+    z-index: 0;
+    will-change: transform; /* Говорим браузеру, что будет анимация */
+    backface-visibility: hidden; /* Фикс дрожания в Chrome */
+}
+
+.parallax-bg4 {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: url('bg_4.png');
+    background-size: auto 90%;
+    background-position: center;
+    will-change: transform;
+    z-index: 0;
+    will-change: transform; /* Говорим браузеру, что будет анимация */
+    backface-visibility: hidden; /* Фикс дрожания в Chrome */
+}
+
+.parallax-humst {
+    position: absolute;
+    top: 18%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: url('Hamstwaii.png');
+    background-size: auto 35%;
+    background-position: center;
+    background-repeat: no-repeat;
+    will-change: transform;
+    z-index: 2;
     will-change: transform; /* Говорим браузеру, что будет анимация */
     backface-visibility: hidden; /* Фикс дрожания в Chrome */
 }
@@ -44,7 +120,6 @@ body, html {
     background-position: center;
     will-change: transform;
     z-index: 3;
-    filter: blur(7px);
     will-change: transform; /* Говорим браузеру, что будет анимация */
     backface-visibility: hidden; /* Фикс дрожания в Chrome */
 }
@@ -60,7 +135,6 @@ body, html {
     background-position: center;
     will-change: transform;
     z-index: 2;
-    filter: blur(5px);
     will-change: transform; /* Говорим браузеру, что будет анимация */
     backface-visibility: hidden; /* Фикс дрожания в Chrome */
 }
@@ -76,7 +150,6 @@ body, html {
     background-position: center;
     will-change: transform;
     z-index: 1;
-    filter: blur(7px);
     will-change: transform; /* Говорим браузеру, что будет анимация */
     backface-visibility: hidden; /* Фикс дрожания в Chrome */
 }
