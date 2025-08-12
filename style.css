@@ -309,6 +309,10 @@ a, button, input, select, textarea,
     transform: translateX(3px);
 }
 
+.download-btn:hover .link-icon {
+    transform: translateX(3px);
+}
+
 .confetti {
     position: fixed;
     top: 0;
