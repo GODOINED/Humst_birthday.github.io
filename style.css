@@ -2,12 +2,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: url('cursor.png'), auto !important;
 }
 
 body, html {
     height: 100%;
     overflow: hidden;
     font-family: 'Arial', sans-serif;
+}
+
+/* Отключаем стандартные изменения курсора */
+a, button, input, select, textarea,
+[role="button"], [onclick], [tabindex] {
+    cursor: url('cursor.png'), auto !important;
+}
+
+/* Для элементов с hover */
+:hover {
+    cursor: url('cursor.png') 16 16, pointer;
 }
 
 .parallax-container {
@@ -18,6 +30,7 @@ body, html {
     animation: gentleMove 15s infinite ease-in-out;
 }
 
+/* Фоновые элементы */
 .parallax-bg {
     position: absolute;
     top: -10%;
@@ -29,8 +42,7 @@ body, html {
     background-position: center;
     will-change: transform;
     z-index: 0;
-    will-change: transform; /* Говорим браузеру, что будет анимация */
-    backface-visibility: hidden; /* Фикс дрожания в Chrome */
+    backface-visibility: hidden;
 }
 
 .parallax-bg1 {
@@ -44,8 +56,7 @@ body, html {
     background-position: center;
     will-change: transform;
     z-index: 2;
-    will-change: transform; /* Говорим браузеру, что будет анимация */
-    backface-visibility: hidden; /* Фикс дрожания в Chrome */
+    backface-visibility: hidden;
 }
 
 .parallax-bg2 {
@@ -59,8 +70,7 @@ body, html {
     background-position: center;
     will-change: transform;
     z-index: 1;
-    will-change: transform; /* Говорим браузеру, что будет анимация */
-    backface-visibility: hidden; /* Фикс дрожания в Chrome */
+    backface-visibility: hidden;
 }
 
 .parallax-bg3 {
@@ -74,8 +84,7 @@ body, html {
     background-position: center;
     will-change: transform;
     z-index: 0;
-    will-change: transform; /* Говорим браузеру, что будет анимация */
-    backface-visibility: hidden; /* Фикс дрожания в Chrome */
+    backface-visibility: hidden;
 }
 
 .parallax-bg4 {
@@ -89,8 +98,7 @@ body, html {
     background-position: center;
     will-change: transform;
     z-index: 0;
-    will-change: transform; /* Говорим браузеру, что будет анимация */
-    backface-visibility: hidden; /* Фикс дрожания в Chrome */
+    backface-visibility: hidden;
 }
 
 .parallax-humst {
@@ -105,8 +113,7 @@ body, html {
     background-repeat: no-repeat;
     will-change: transform;
     z-index: 2;
-    will-change: transform; /* Говорим браузеру, что будет анимация */
-    backface-visibility: hidden; /* Фикс дрожания в Chrome */
+    backface-visibility: hidden;
 }
 
 .parallax-cloud {
@@ -120,8 +127,7 @@ body, html {
     background-position: center;
     will-change: transform;
     z-index: 3;
-    will-change: transform; /* Говорим браузеру, что будет анимация */
-    backface-visibility: hidden; /* Фикс дрожания в Chrome */
+    backface-visibility: hidden;
 }
 
 .parallax-cloudbg {
@@ -135,8 +141,7 @@ body, html {
     background-position: center;
     will-change: transform;
     z-index: 2;
-    will-change: transform; /* Говорим браузеру, что будет анимация */
-    backface-visibility: hidden; /* Фикс дрожания в Chrome */
+    backface-visibility: hidden;
 }
 
 .parallax-cloudbg2 {
@@ -150,10 +155,10 @@ body, html {
     background-position: center;
     will-change: transform;
     z-index: 1;
-    will-change: transform; /* Говорим браузеру, что будет анимация */
-    backface-visibility: hidden; /* Фикс дрожания в Chrome */
+    backface-visibility: hidden;
 }
 
+/* Туман */
 .fog-container {
     position: absolute;
     bottom: -10%;
@@ -162,8 +167,7 @@ body, html {
     height: 50%;
     overflow: visible;
     z-index: 4;
-    will-change: transform; /* Говорим браузеру, что будет анимация */
-    backface-visibility: hidden; /* Фикс дрожания в Chrome */
+    backface-visibility: hidden;
 }
 
 .fog-layer {
@@ -176,14 +180,6 @@ body, html {
     opacity: 0.5;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    animation: 
-        fogMove 120s linear infinite,
-        gentleFog 20s ease-in-out infinite;
-}
-
-@keyframes gentleFog {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
 }
 
 .fog-layer.layer-1 {
@@ -212,27 +208,44 @@ body, html {
     75% { transform: translate(5px, -3px) scale(1.05); }
 }
 
+/* Основной контент */
 .content {
     position: relative;
+    height: 100%;
+    z-index: 10;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100%;
-    z-index: 3;
+    pointer-events: none;
+}
+
+.buttons-container {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 100;
+    pointer-events: auto;
 }
 
 .birthday-message {
-    text-align: center;
-    top: 10%;
-    left: -10%;
-    width: 120%;
-    height: 120%;
     position: absolute;
-    margin-bottom: 30px;
-    animation: fadeIn 2s ease-out;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    z-index: 50;
+    pointer-events: none;
 }
 
+.birthday-message * {
+    pointer-events: auto;
+}
+
+/* Стили текста */
 .birthday-message h1 {
     font-size: 3rem;
     color: #ff6b6b;
@@ -246,12 +259,10 @@ body, html {
     opacity: 0.9;
 }
 
+/* Кнопки */
 .download-btn {
     padding: 15px 40px;
     font-size: 1.2rem;
-    top: 25%;
-
-    position: absolute;
     color: white;
     background: linear-gradient(45deg, #ff6b6b, #feca57);
     border: none;
@@ -266,23 +277,84 @@ body, html {
     box-shadow: 0 8px 25px rgba(255, 107, 107, 0.7);
 }
 
+.link-btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    color: white;
+    background: linear-gradient(45deg, #5c7cfa, #339af0);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(92, 124, 250, 0.5);
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.link-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(92, 124, 250, 0.7);
+}
+
+.link-icon {
+    width: auto;
+    height: 20px;
+    object-fit: contain;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.link-btn:hover .link-icon {
+    transform: translateX(3px);
+}
+
 .confetti {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
-    z-index: -1;
     overflow: hidden;
+    z-index: 10;
 }
 
 .confetti-piece {
     position: absolute;
-    width: 10px;
-    height: 10px;
     opacity: 0;
-    animation: confettiFall 5s linear infinite;
+    animation: fallWithWind 6s linear infinite;
+    will-change: transform, opacity;
+}
+
+@keyframes fallWithWind {
+    0% {
+        transform:
+            translateY(-20vh)
+            translateX(calc(var(--wind-start) * 1px))
+            rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    50% {
+        transform:
+            translateY(50vh)
+            translateX(calc(var(--wind-end) * 0.7px))
+            rotate(180deg);
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform:
+            translateY(100vh)
+            translateX(calc(var(--wind-end) * 1px))
+            rotate(360deg);
+        opacity: 0;
+    }
 }
 
 @keyframes fadeIn {
@@ -290,7 +362,208 @@ body, html {
     to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes confettiFall {
-    0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+
+/* Анимации */
+.sweet-message {
+    position: relative;
+    display: inline-block;
+    padding: 30px 50px;
+    margin: 40px 0;
+    background: rgba(255, 245, 240, 0.7);
+    border-radius: 50px;
+    box-shadow:
+        0 10px 30px rgba(255, 192, 203, 0.5),
+        inset 0 0 20px rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
+
+
+.candy-title {
+    font-family: 'Comfortaa', cursive;
+    font-size: 3.5rem;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.candy-letter {
+    display: inline-block;
+    color: #FF6B6B;
+    text-shadow:
+        2px 2px 0 #FFD3D3,
+        4px 4px 0 #FFA7A7;
+    transform: translateY(0);
+    animation: candyBounce 1.5s infinite alternate;
+}
+
+@keyframes candyBounce {
+    to { transform: translateY(-10px); }
+}
+
+/* Полоски как на конфетах */
+.candy-stripes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%; /* Удваиваем ширину */
+    height: 100%;
+    background:
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 15px,
+            rgba(255, 107, 107, 0.2) 15px,
+            rgba(255, 107, 107, 0.2) 30px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 15px,
+            rgba(255, 215, 0, 0.2) 15px,
+            rgba(255, 215, 0, 0.2) 30px
+        );
+    filter:
+        drop-shadow(2px 4px 6px rgba(0,0,0,0.3))
+        brightness(1.05);
+    transform-style: preserve-3d;
+    animation: moveLeft 60s infinite linear;
+    will-change: transform; /* Улучшает производительность */
+    backface-visibility: hidden; /* Фиксит мерцание в Safari */
+    z-index: 1;
+}
+
+@keyframes moveLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Сдвигаем ровно на половину ширины */
+    }
+}
+/* Эффект блесток */
+.candy-letter::after {
+    content: "✦";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    color: gold;
+    opacity: 0;
+    animation: sparkle 2s infinite;
+}
+
+.candy-letter.has-sparkle::after {
+    animation: sparkle 2s infinite var(--sparkle-delay);
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; transform: translateX(-50%) scale(1.5); }
+}
+
+/* Разная анимация для букв */
+.candy-letter:nth-child(1) { animation-delay: 0.1s; color: #FF9F43; }
+.candy-letter:nth-child(3) { animation-delay: 0.3s; color: #FF6B6B; }
+.candy-letter:nth-child(5) { animation-delay: 0.5s; color: #FECA57; }
+.candy-letter:nth-child(7) { animation-delay: 0.7s; color: #EE5253; }
+.candy-letter:nth-child(9) { animation-delay: 0.9s; color: #FF9F43; }
+
+/* Частицы и светлячки */
+#audioParticles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.audio-particle {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.9;
+    animation:
+        floatParticle 1.5s ease-out forwards,
+        rotateParticle 3s linear infinite;
+    transform-origin: center;
+    will-change: transform, opacity;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.7));
+}
+
+.fireflies-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
+    backface-visibility: hidden;
+}
+
+.firefly {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #fffacd;
+    box-shadow: 0 0 10px 2px #fffacd,
+                0 0 20px 5px #ffeb3b;
+    opacity: 0;
+    animation:
+        fireflyFloat 15s infinite ease-in-out,
+        fireflyFlicker 3s infinite ease-in-out;
+    filter: blur(0.5px);
+    will-change: transform;
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translate(0, 0) scale(0.8) rotate(0deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform:
+            translate(var(--end-x, 0), var(--end-y, -100px))
+            scale(1.3)
+            rotate(var(--rotation, 0));
+        opacity: 0;
+    }
+}
+
+@keyframes rotateParticle {
+    to {
+        transform: rotate(var(--rotation, 0));
+    }
+}
+
+@keyframes fireflyFloat {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(20px, -10px);
+    }
+    50% {
+        transform: translate(-15px, 15px);
+    }
+    75% {
+        transform: translate(10px, -5px);
+    }
+}
+
+@keyframes fireflyFlicker {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        opacity: 0.6;
+    }
+    10%, 30%, 50%, 70%, 90% {
+        opacity: 0.15;
+    }
 }
